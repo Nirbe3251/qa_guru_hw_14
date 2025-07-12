@@ -2,8 +2,8 @@ from selene import browser, have, be, command
 
 
 class MainPage:
-    def browser_open(self, value):
-        browser.open(value)
+    def browser_open(self):
+        browser.open("https://www.litres.ru/")
 
     def search_book(self, value):
         browser.element("[name='q']").type(value).press_enter()
@@ -20,6 +20,7 @@ class MainPage:
     def redirect_to_cart(self):
         browser.element('[data-testid="modal__close--button"]').click()
         browser.element("[data-testid='book__goToCartButton']").click()
+
 
     def remove_book_from_the_cart(self):
         browser.element("[data-testid='cart__listDeleteButton']").click()
