@@ -5,6 +5,7 @@ from selenium import webdriver
 from dotenv import load_dotenv
 import os
 
+from litres_test.pages.main_page import MainPage
 from utils import attach
 
 @pytest.fixture(scope="session", autouse=True)

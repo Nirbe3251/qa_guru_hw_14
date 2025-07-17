@@ -21,9 +21,35 @@ class MainPage:
         browser.element('[data-testid="modal__close--button"]').click()
         browser.element("[data-testid='book__goToCartButton']").click()
 
-
     def remove_book_from_the_cart(self):
         browser.element("[data-testid='cart__listDeleteButton']").click()
         browser.element('//*[@id="modal"]/div[3]/div/div/div/div/div[3]/button[1]').click()
 
+    def cart_is_not_empty(self):
+        return browser.element("[data-testid='cart__listDeleteButton']").matching(be.visible)
 
+    def open_page_my_books(self):
+        browser.element('[data-testid="tab-myBooks"]').click()
+
+    def choise_book(self):
+        browser.element('[data-testid="button__content"]').click()
+
+    def redirect_to_promocodes(self):
+        browser.element('[data-testid="lowerMenu__item--promoCodes"]').click()
+
+    def fill_promocode_input(self, value):
+        browser.element('[name="promocode"]').type(value)
+
+    def click_activation_button(self):
+        browser.element('[data-testid="button__content"]').click()
+
+    def open_login_popup(self):
+        browser.element('[data-testid="user-button"]').click()
+
+    def fill_email(self, value):
+        browser.element('[name="email"]').type(value)
+        browser.element('[data-testid="auth__button--continue"]').click()
+
+    def fill_password(self, value):
+        browser.element('[name="pwd"]').type(value)
+        browser.element('[data-testid="auth__button--enter"]').click()
