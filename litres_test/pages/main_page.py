@@ -10,7 +10,13 @@ class MainPage:
 
     def open_book(self):
         browser.element('[data-testid="art__title"][href="/audiobook/stiven-king/mertvaya-zona-65822193/"]').should(be.visible).click()
-        browser.driver.switch_to.window(browser.driver.window_handles[-1])  # Переключаемся на вкладку с книгой
+        browser.driver.switch_to.window(browser.driver.window_handles[-1])
+
+    def switch_text_version_book(self):
+        browser.element('[data-testid="book-tabs-format__element_текст"]').click()
+
+    def open_text_preview(self):
+        browser.element('[data-testid="book__fragmentReadListen--button"]').click()
 
     def add_book_in_the_cart(self):
         element = browser.element("[data-testid='book__addToCartButton']").should(be.visible)
